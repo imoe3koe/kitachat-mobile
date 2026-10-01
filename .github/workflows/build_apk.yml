@@ -2,7 +2,7 @@ name: Build Flutter APK
 
 on:
   push:
-    branches: [ "kitachat" ] # Sesuaikan dengan nama branch utama Anda (main atau master)
+    branches: [ "main" ] # Sesuaikan dengan branch utama Anda (main/master)
   workflow_dispatch:
 
 jobs:
@@ -22,14 +22,14 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.x' # Menggunakan versi stabil terbaru
+          flutter-version: '3.x'
           cache: true
 
       - name: Install Dependencies
         run: flutter pub get
 
       - name: Build Release APK
-        run: flutter build apk --release
+        run: flutter build apk --release --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
