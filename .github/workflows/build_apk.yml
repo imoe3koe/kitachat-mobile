@@ -2,7 +2,7 @@ name: Build Flutter APK
 
 on:
   push:
-    branches: [ "main" ] # Sesuaikan dengan branch utama Anda (main/master)
+    branches: [ "main" ] # Sesuaikan dengan branch utama Anda (main atau master)
   workflow_dispatch:
 
 jobs:
