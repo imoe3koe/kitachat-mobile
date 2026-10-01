@@ -1,0 +1,65 @@
+name: kitachat_mobile
+description: Aplikasi chat keluarga KitaChat
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.9.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Networking & Realtime
+  http: ^1.2.0
+  http_parser: ^4.0.8    # Diperlukan oleh pengaturan_screen.dart untuk upload foto profil
+  socket_io_client: ^2.0.3+1
+
+  # WebRTC (Panggilan Suara Keluarga Asli / Peer-to-Peer)
+  flutter_webrtc: ^1.6.2  # 🟢 DIPERBARUI: Mencegah error compile pada Android/iOS SDK baru
+
+  # Media (Gambar & PDF)
+  image_picker: ^1.1.2
+  file_picker: ^8.1.2
+
+  # Link Detection & Launch
+  flutter_linkify: ^6.0.0
+  url_launcher: ^6.3.1
+
+  # Audio (Voice Note Recording & Playback)
+  record: ^7.1.1          # 🟢 DIPERBARUI: Menjamin kecocokan dengan Dart SDK >=3.9.0
+  audioplayers: ^6.8.1    # 🟢 DIPERBARUI: Fitur pemutaran audio multi-platform yang lebih stabil
+
+  # Cache Image
+  cached_network_image: ^3.4.1
+
+  # Permission Handler (Mikrofon & Penyimpanan)
+  permission_handler: ^11.3.1
+
+  # Location & GPS (Pelacakan Lokasi & SOS Keluarga)
+  geolocator: 13.0.4     # 🟢 DIPERBARUI: Mengikuti standar Android SDK terbaru
+
+  # File & Storage Utilities
+  path_provider: ^2.1.5
+  open_filex: ^4.5.0
+  path: ^1.9.0
+
+  # Date Format
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # 🟢 DIPERBAIKI: Struktur penulisan folder aset yang benar
+  assets:
+    - assets/images/
+    - assets/icons/
