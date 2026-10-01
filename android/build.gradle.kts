@@ -1,15 +1,13 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android") // 🟢 WAJIB ADA DI SINI
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    // Built-in Kotlin support di Flutter 3.47.5 dengan AGP 9+
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
     namespace = "com.example.kitachat_mobile"
 
-    // Target kompilasi menggunakan SDK 36 (Android 16)
-    compileSdk = 36
+    compileSdk = 35
     ndkVersion = "26.1.10909125"
 
     compileOptions {
@@ -20,13 +18,9 @@ android {
     defaultConfig {
         applicationId = "com.example.kitachat_mobile"
 
-        // Mengunci minSdk ke 23 untuk memenuhi kebutuhan flutter_webrtc
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
+        targetSdk = 35
 
-        // Target operasional aplikasi di SDK 36
-        targetSdk = 36
-
-        // Mengambil kode versi otomatis dari pubspec.yaml
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
