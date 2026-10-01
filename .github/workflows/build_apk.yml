@@ -26,8 +26,11 @@ jobs:
       - run: flutter clean
       - run: flutter pub get
       
-      - name: Build Debug APK (Verbose)
-        run: flutter build apk --debug -v 2>&1 | tail -200
+      - name: Build Debug APK
+        run: flutter build apk --debug -v
+
+      - name: List Build Outputs
+        run: find build -name "*.apk" -type f 2>/dev/null || echo "No APK found"
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
