@@ -1,5 +1,5 @@
 pluginManagement {
-    // Jalur mutlak langsung ke Flutter SDK di Codespaces agar 100% akurat
+    // Jalur mutlak langsung diarahkan ke SDK Flutter di Codespaces
     val flutterSdkPath = "/workspaces/kitachat-mobile/flutter"
 
     includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
