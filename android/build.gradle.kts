@@ -1,6 +1,5 @@
 plugins {
-    id("com.android.application")
-    // Built-in Kotlin support di Flutter 3.47.5 dengan AGP 9+
+    id("com.android.application") version "8.6.0"
     id("dev.flutter.flutter-gradle-plugin")
 }
 
