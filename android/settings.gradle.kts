@@ -8,7 +8,8 @@ pluginManagement {
         flutterSdkPath
     }
 
-    includeBuild("\$flutterSdkPath/packages/flutter_tools/gradle")
+    // 🟢 DIPERBAIKI: Hapus backslash (\) agar variabel terbaca dengan benar
+    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
 
     repositories {
         google()
@@ -17,21 +18,21 @@ pluginManagement {
     }
 }
 
-// ✅ Plugin management untuk Flutter 3.24.x + Kotlin 2.0.10 + AGP 9.1.0
+// ✅ Plugin management untuk Flutter 3.x + Kotlin + AGP
 plugins {
     id("dev.flutter.flutter-plugin-loader") version "1.0.0"
-    id("com.android.application") version "9.1.0" apply false  // AGP 9.1.0 - Versi terbaru 2024
-    id("org.jetbrains.kotlin.android") version "2.0.10" apply false  // Kotlin 2.0.10
+    id("com.android.application") version "8.7.3" apply false  // Menggunakan AGP versi stabil
+    id("org.jetbrains.kotlin.android") version "2.0.10" apply false 
 }
 
 include(":app")
 
 // ✅ Additional configurations untuk project
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)  // Prefer settings.gradle for resolution
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) 
     repositories {
         google()
         mavenCentral()
-        maven(url = "https://jitpack.io")  // Untuk custom packages jika diperlukan
+        maven(url = "https://jitpack.io") 
     }
 }
