@@ -16,31 +16,32 @@ dependencies:
   # Networking & Realtime
   http: ^1.2.0
   http_parser: ^4.0.8    # Diperlukan oleh pengaturan_screen.dart untuk upload foto profil
-  socket_io_client: ^2.0.3+1
+  socket_io_client: ^3.1.6
 
   # WebRTC (Panggilan Suara Keluarga Asli / Peer-to-Peer)
   flutter_webrtc: ^1.6.2  # 🟢 DIPERBARUI: Mencegah error compile pada Android/iOS SDK baru
 
   # Media (Gambar & PDF)
   image_picker: ^1.1.2
-  file_picker: ^8.1.2
+  file_picker: ^11.0.3
 
   # Link Detection & Launch
   flutter_linkify: ^6.0.0
   url_launcher: ^6.3.1
 
   # Audio (Voice Note Recording & Playback)
-  record: ^7.1.1          # 🟢 DIPERBARUI: Menjamin kecocokan dengan Dart SDK >=3.9.0
-  audioplayers: ^6.8.1    # 🟢 DIPERBARUI: Fitur pemutaran audio multi-platform yang lebih stabil
+  record: ^6.2.1
+  audioplayers: ^6.0.0
+
 
   # Cache Image
   cached_network_image: ^3.4.1
 
   # Permission Handler (Mikrofon & Penyimpanan)
-  permission_handler: ^11.3.1
+  permission_handler: ^13.0.2
 
   # Location & GPS (Pelacakan Lokasi & SOS Keluarga)
-  geolocator: 13.0.4     # 🟢 DIPERBARUI: Mengikuti standar Android SDK terbaru
+  geolocator: ^14.0.2     # 🟢 DIPERBARUI: Mengikuti standar Android SDK terbaru
 
   # File & Storage Utilities
   path_provider: ^2.1.5
@@ -54,7 +55,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^6.0.0
+  flutter_lints: ^5.0.0
+
 
 flutter:
   uses-material-design: true
