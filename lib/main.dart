@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'screens/login_screen.dart'; // Pastikan file login_screen.dart sudah dibuat di folder lib/screens/[cite: 30]
+import 'screens/login_screen.dart';
 
-void main() {
-  // Memastikan binding widget terinisialisasi dengan sempurna untuk produksi Android & iOS
+void main() async {
+  // ✅ Memastikan Flutter binding terinisialisasi dengan sempurna
+  // untuk produksi Android, iOS, dan Web
   WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(const KitatChatApp());
 }
 
@@ -13,12 +15,25 @@ class KitatChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'KitatChat',
+      title: 'KitaChat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF128C7E)),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF128C7E),
+          brightness: Brightness.light,
+        ),
+        useMaterial3: true,  // ✅ Material Design 3 untuk Flutter 3.24.x
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
       ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF128C7E),
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xFF111B21),
+      ),
+      themeMode: ThemeMode.system,  // Follow system theme preference
       home: const LoginScreen(),
     );
   }

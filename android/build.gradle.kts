@@ -1,42 +1,16 @@
-plugins {
-    id("com.android.application") version "8.6.0"
-    id("dev.flutter.flutter-gradle-plugin")
-}
-
-android {
-    namespace = "com.example.kitachat_mobile"
-
-    compileSdk = 35
-    ndkVersion = "26.1.10909125"
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    defaultConfig {
-        applicationId = "com.example.kitachat_mobile"
-
-        minSdk = flutter.minSdkVersion
-        targetSdk = 35
-
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
-    }
-
-    buildTypes {
-        release {
-            signingConfig = signingConfigs.getByName("debug")
-        }
+// Project-level build configuration untuk Flutter 3.24.x + AGP 9.1.0 + Java 17
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 
-kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
-    }
+rootProject.buildDir = file('.gradle')
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
 
-flutter {
-    source = "../.."
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

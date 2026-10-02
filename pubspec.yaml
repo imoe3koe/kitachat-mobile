@@ -1,67 +1,70 @@
 name: kitachat_mobile
-description: Aplikasi chat keluarga KitaChat
+description: Aplikasi chat keluarga KitaChat dengan fitur WebRTC, GPS tracking, album, dan agenda keluarga.
 publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.5.4 <4.0.0'  # Ubah dari >=3.9.0
+  sdk: '>=3.5.4 <4.0.0'  # ✅ Dart 3.5.x - Null Safety mode
 
 dependencies:
   flutter:
     sdk: flutter
 
+  # UI & Material Design
   cupertino_icons: ^1.0.8
 
-  # Networking & Realtime
-  http: ^1.2.0
-  http_parser: ^4.0.8    # Diperlukan oleh pengaturan_screen.dart untuk upload foto profil
-  socket_io_client: ^3.1.6
+  # ===== NETWORKING & REALTIME =====
+  http: ^1.2.0              # REST API calls
+  http_parser: ^4.0.8       # Parse HTTP payloads
+  socket_io_client: ^3.1.6  # WebSocket untuk real-time chat
 
-  # WebRTC (Panggilan Suara Keluarga Asli / Peer-to-Peer)
-  flutter_webrtc: ^1.6.2  # 🟢 DIPERBARUI: Mencegah error compile pada Android/iOS SDK baru
+  # ===== WEBRTC (Panggilan Keluarga Peer-to-Peer) =====
+  flutter_webrtc: ^1.6.2    # ✅ UPDATED: WebRTC native implementation
 
-  # Media (Gambar & PDF)
-  image_picker: ^1.1.2
-  file_picker: ^11.0.3
+  # ===== MEDIA HANDLING =====
+  image_picker: ^1.1.2      # Pick gambar dari galeri
+  file_picker: ^11.0.3      # File picker untuk PDF & files
 
-  # Link Detection & Launch
-  flutter_linkify: ^6.0.0
-  url_launcher: ^6.3.1
+  # ===== LINK DETECTION & LAUNCHING =====
+  flutter_linkify: ^6.0.0   # Detect & format links di chat
+  url_launcher: ^6.3.1      # Launch URLs dan deep links
 
-  # Audio (Voice Note Recording & Playback)
-  record: ^6.2.1
-  audioplayers: ^6.0.0
+  # ===== AUDIO RECORDING & PLAYBACK =====
+  record: ^6.2.1            # Voice note recording (mendukung Web & Mobile)
+  audioplayers: ^6.0.0      # Playback audio dari URL
 
+  # ===== IMAGE CACHING =====
+  cached_network_image: ^3.4.1  # Cache & optimize image loading
 
-  # Cache Image
-  cached_network_image: ^3.4.1
+  # ===== PERMISSIONS =====
+  permission_handler: ^13.0.2  # Request microphone, storage, location
 
-  # Permission Handler (Mikrofon & Penyimpanan)
-  permission_handler: ^13.0.2
+  # ===== LOCATION & GPS TRACKING =====
+  geolocator: ^14.0.2       # GPS location dengan akurasi tinggi
 
-  # Location & GPS (Pelacakan Lokasi & SOS Keluarga)
-  geolocator: ^14.0.2     # 🟢 DIPERBARUI: Mengikuti standar Android SDK terbaru
+  # ===== FILE & STORAGE =====
+  path_provider: ^2.1.5     # Get app directory paths
+  open_filex: ^4.5.0        # Open files with default apps
+  path: ^1.9.0              # Path manipulation utilities
 
-  # File & Storage Utilities
-  path_provider: ^2.1.5
-  open_filex: ^4.5.0
-  path: ^1.9.0
-
-  # Date Format
-  intl: ^0.20.2
+  # ===== FORMATTING =====
+  intl: ^0.20.2             # Internationalization & date formatting
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^5.0.0
-
+  flutter_lints: ^5.0.0     # Lint rules untuk Dart 3.5.x
 
 flutter:
   uses-material-design: true
 
-  # 🟢 DIPERBAIKI: Struktur penulisan folder aset yang benar
+  # Assets management
   assets:
     - assets/images/
     - assets/icons/
+
+# ===== BUILD TARGETS =====
+# Mobile: Android API 21+ (Flutter 3.24.x requirement)
+# Minimum Dart: 3.5.4
